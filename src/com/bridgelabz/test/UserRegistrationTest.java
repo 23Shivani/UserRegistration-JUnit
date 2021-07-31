@@ -30,4 +30,15 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.validateFirstName("Shiv@");
 		Assert.assertFalse(result);
 	}
+	@Test
+	public void givenLastName_FirstLetterUpperCase_Pass(){
+	    boolean result = userRegistration.validateLastName("Gharve");
+	    Assert.assertTrue(result);
+	}
+	
+	@Test 
+	public void givenLastName_LessThanThreeChar_Fail() {
+		boolean result = userRegistration.validateLastName("gh");
+		Assert.assertFalse(result);
+	}
 }
