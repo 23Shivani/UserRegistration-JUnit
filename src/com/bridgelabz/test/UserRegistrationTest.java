@@ -47,5 +47,16 @@ public class UserRegistrationTest {
 	        boolean result = userRegistration.validateEmailId("xyz_sss@ab.co.in");
 	        Assert.assertTrue(result);
 	    }
-
+	
+	@Test
+    public void givenMobileNum_IfLessDigits_Fail(){
+        boolean result = userRegistration.validateMobileNum("9960077482");
+        Assert.assertFalse(result);
+    }
+	
+	@Test
+    public void givenMobileNum_IfNotStartWith91_Fail(){
+        boolean result = userRegistration.validateMobileNum("7894561273");
+        Assert.assertFalse(result);
+    }
 }
