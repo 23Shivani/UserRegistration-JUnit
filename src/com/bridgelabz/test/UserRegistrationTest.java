@@ -41,4 +41,11 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.validateLastName("gh");
 		Assert.assertFalse(result);
 	}
+	
+	@Test
+	    public void givenEmailId_IfProper_Pass(){
+	        boolean result = userRegistration.validateEmailId("xyz_sss@ab.co.in");
+	        Assert.assertTrue(result);
+	    }
+
 }
