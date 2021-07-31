@@ -59,4 +59,46 @@ public class UserRegistrationTest {
         boolean result = userRegistration.validateMobileNum("7894561273");
         Assert.assertFalse(result);
     }
+	
+	@Test
+	public void givenPassword_IfMin8Chars_Pass() {
+		boolean result = userRegistration.validatePassword("sE@sgrn1*");
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void givenPassword_IfAtleast1UpperCase_Pass() {
+		boolean result = userRegistration.validatePassword("3Rmdg*nKx");
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void givenPassword_IfAtleast1Number_Pass() {
+		boolean result = userRegistration.validatePassword("Mas1bt&Bx");
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void givenPassword_IfNoNumeric_Fail() {
+		boolean result = userRegistration.validatePassword("itbP$fDB");
+		Assert.assertFalse(result);
+	}
+
+	@Test
+	public void givenPassword_HasExact1SpecialChar_Pass() {
+		boolean result = userRegistration.validatePassword("mDkk#fD1");
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void givenPassword_IfNoSpecialChar_Fail() {
+		boolean result = userRegistration.validatePassword("mDkkfD12");
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void givenPassword_HasMoreThan1SpecialChar_Fail() {
+		boolean result = userRegistration.validatePassword("jT!ew@y");
+		Assert.assertFalse(result);
+	}
 }
